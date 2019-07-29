@@ -1,0 +1,584 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Tests API · Gemini</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="programmatic-api.html" />
+    
+    
+    <link rel="prev" href="commands.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Command-line interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="programmatic-api.html">
+            
+                <a href="programmatic-api.html">
+            
+                    
+                    Programmatic API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Plugins API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <a target="_blank" href="https://www.npmjs.com/browse/keyword/gemini-plugin">
+            
+                    
+                    Plugins list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../CHANGELOG.html">
+            
+                <a href="../CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../CLA.html">
+            
+                <a href="../CLA.html">
+            
+                    
+                    CLA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Tests API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="writing-gemini-tests">Writing Gemini tests</h1><p>For each block of website that will be tested you need to write one or more
+<em>test suites</em>. Suite consists of few <em>states</em> that need to be verified. For
+each state you need to specify <em>action sequence</em> that gets block to this
+state.</p><h2 id="defining-suites">Defining suites</h2><p>Test suite is defined with <code>gemini.suite</code> method.</p><p><strong>Example</strong>:</p><pre><code class="lang-js">gemini.suite(<span class="hljs-string">&apos;button&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suite</span>) </span>{
+    suite
+        .setUrl(<span class="hljs-string">&apos;/path/to/page&apos;</span>)
+        .setCaptureElements(<span class="hljs-string">&apos;.button&apos;</span>)
+        .before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+            <span class="hljs-keyword">this</span>.button = find(<span class="hljs-string">&apos;.buttons&apos;</span>);
+        })
+        .capture(<span class="hljs-string">&apos;plain&apos;</span>)
+        .capture(<span class="hljs-string">&apos;hovered&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+            actions.mouseMove(<span class="hljs-keyword">this</span>.button);
+        })
+        .capture(<span class="hljs-string">&apos;pressed&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+            actions.mouseDown(<span class="hljs-keyword">this</span>.button);
+        })
+        .capture(<span class="hljs-string">&apos;clicked&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+            actions.mouseUp(<span class="hljs-keyword">this</span>.button);
+        });
+});</code></pre>
+<p>Arguments of a <code>gemini.suite</code>:</p><ul><li><p><code>name</code> &#x2014; the name of the new test suite. Name is displayed in reports and
+affects screenshots filenames. <strong>Important</strong> Name of test suite can not be empty.</p></li>
+<li><p><code>callback(suite)</code> &#x2014; callback, used to set up the suite. Receives a suite
+builder instance (described below).</p></li></ul>
+<h2 id="suite-builder-methods">Suite builder methods</h2><p>All methods are chainable:</p><ul><li><p><code>setUrl(url)</code> &#x2014; specifies address of a web page to take screenshots from.
+URL is relative to <code>rootUrl</code> config field.</p></li>
+<li><p><code>setCaptureElements(&apos;selector1&apos;, &apos;selector2&apos;, ...})</code> &#x2014; specifies CSS
+selectors of the elements that will be used to determine a region of a web
+page to capture.</p><p>Capture region is determined by minimum bounding rect for all
+of the elements plus their <code>box-shadow</code> size.</p><p>Can also accept an array:</p><pre><code class="lang-js">suite.setCaptureElements([<span class="hljs-string">&apos;.selector1&apos;</span>, <span class="hljs-string">&apos;.selector2&apos;</span>]);</code></pre>
+<p>All tests in a suite will fail if none of the elements will be found.</p></li>
+<li><p><code>ignoreElements(&apos;.selector1&apos;, {every: &apos;.selector2&apos;}, ...)</code> &#x2014; elements, matching
+specified selectors will be ignored when comparing images.</p><ul><li><code>.selector1</code> &#x2014; Ignore only the first matched element.
+</li>
+<li><code>{every: &apos;.selector2&apos;}</code> &#x2014; Ignore all matched elements.
+</li></ul>
+</li>
+<li><p><code>setTolerance(value)</code> &#x2014; overrides global tolerance value for the whole suite
+(See <code>tolerance</code>option description in <a href="config.html">config</a> documentation
+for details).</p></li>
+<li><p><code>capture(stateName, [options], callback(actions, find))</code> &#x2014; defines a new
+state to capture. Optional callback describes a sequence of actions to bring
+the page to this state, starting from a <strong>previous</strong> state of the suite.
+States are executed one after another in order of definition without browser
+reload in between.</p><p>Callback accepts two arguments:</p><ul><li><p><code>actions</code> &#x2014; chainable object that should be used to specify a series of
+actions to perform.</p></li>
+<li><p><code>find(selector)</code> &#x2014;  use this function to search for an element to act on.
+Search is lazy and actually will be performed the first time element is
+needed. Search will be performed once for each <code>find</code> call, so if you
+need to perform multiple actions on the same element, save the result to
+some variable:</p><pre><code class="lang-js">.capture(<span class="hljs-string">&apos;name&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+    <span class="hljs-keyword">var</span> button = find(<span class="hljs-string">&apos;.button&apos;</span>);
+    actions.mouseDown(button)
+        .mouseUp(button);
+});</code></pre>
+<p>Options parameter allows you to override a <code>tolerance</code> value for one test:</p><pre><code class="lang-js">.capture(<span class="hljs-string">&apos;name&apos;</span>, {tolerance: <span class="hljs-number">30</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+
+});</code></pre>
+<p>See <code>tolerance</code>option description in <a href="config.html">config</a>
+documentation for details.</p></li></ul>
+</li></ul>
+<ul><li><p><code>before(callback(actions, find))</code> &#x2014; use this function to execute some code
+before the first state. The arguments of a callback are the same as for
+<code>capture</code> callback. Context is shared between <code>before</code> callback and all of
+suite&apos;s state callbacks, so you can use this hook to lookup for an element
+only once for the whole suite:</p><pre><code class="lang-js">suite
+    .before(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+        <span class="hljs-keyword">this</span>.button = find(<span class="hljs-string">&apos;.buttons&apos;</span>);
+    })
+    .capture(<span class="hljs-string">&apos;hovered&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+        actions.mouseMove(<span class="hljs-keyword">this</span>.button);
+    })
+    .capture(<span class="hljs-string">&apos;pressed&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+        actions.mouseDown(<span class="hljs-keyword">this</span>.button);
+    });</code></pre>
+<ul><li><code>after(callback(actions, find))</code> &#x2014; use this function to execute some code
+after the last state. The arguments of a callback are the same as for
+<code>capture</code> and <code>before</code> callbacks and context is shared between all of them.
+</li></ul>
+</li></ul>
+<h3 id="skip-tests">Skip tests</h3><p>Sometimes you need to skip tests in specific browsers. For example, tested features
+are not available in some browsers yet.</p><ul><li><p><code>skip.in([browser])</code> &#x2014; skip all tests and nested suites for:</p><ul><li><p><code>skip.in(&apos;id&apos;)</code> &#x2014; browser with specified <code>id</code>;</p></li>
+<li><p><code>skip.in(&apos;id&apos;, comment)</code> &#x2014; browser with specified <code>id</code> and show <code>comment</code> in the report;</p></li>
+<li><p><code>skip.in(/some RegExp/)</code> &#x2014; browser with <code>id</code> which matches <code>/some RegExp/</code>;</p></li>
+<li><p><code>skip.in(/some RegExp/, comment)</code> &#x2014; browser with <code>id</code> which matches <code>/some RegExp/</code>
+and show <code>comment</code> in the report;</p></li>
+<li><p><code>skip.in([&apos;id1&apos;, /RegExp1/, ...])</code> &#x2014; multiple browsers;</p></li>
+<li><p><code>skip.in([&apos;id1&apos;, /RegExp1/, ...], comment)</code> &#x2014; multiple browsers and show <code>comment</code> in the report.</p></li></ul>
+</li></ul>
+<p>To skip all tests in suite you can use <code>skip.in(/.*/)</code>.</p><p>All browsers from subsequent calls to <code>.skip.in</code> are added to the skip list:</p><pre><code class="lang-js">  suite
+      .skip.in(<span class="hljs-string">&apos;id1&apos;</span>)
+      .skip.in(<span class="hljs-regexp">/RegExp1/</span>);</code></pre>
+<p>is equivalent to</p><pre><code class="lang-js">  suite.skip.in([
+      <span class="hljs-string">&apos;id1&apos;</span>,
+      <span class="hljs-regexp">/RegExp1/</span>
+  ]);</code></pre>
+<ul><li>~<code>skip([browser])</code>~ &#x2014; <em>deprecated</em>.
+Works the same way as <code>skip.in</code>, except to skip all tests you can also write <code>skip()</code>.
+</li></ul>
+<ul><li><code>skip.notIn([browser])</code> &#x2014; skip all tests and nested suites for all browsers,
+except ones in the arguments. Accepts same arguments as <code>skip.in</code>.
+</li></ul>
+<p>To skip test silently, use <code>only.in</code> function. This way, skipped browsers will not appear in the report.</p><ul><li><p><code>only.in([browser])</code> &#x2014; run all tests and nested suites in specified browsers:</p><ul><li><p><code>only.in(&apos;id&apos;)</code> &#x2014; browser with specified <code>id</code>;</p></li>
+<li><p><code>only.in(/some RegExp/)</code> &#x2014; browser <code>id</code> which matches <code>/some RegExp/</code>;</p></li>
+<li><p><code>only.in(&apos;id1&apos;, /RegExp1/, ...)</code> &#x2014; multiple browsers, also accepts an array as argument.</p></li></ul>
+</li></ul>
+<ul><li><p>~<code>browsers([browser])</code>~ &#x2014; <em>deprecated</em>. Use <code>only.in</code> instead.</p></li>
+<li><p><code>only.notIn([browser])</code> &#x2014; run all tests and nested suites in all browsers, except
+ones in the arguments. Accepts same arguments as <code>only.in</code>.</p></li></ul>
+<p>For example:</p><pre><code class="lang-js">suite.only.in([<span class="hljs-string">&apos;chrome&apos;</span>, <span class="hljs-string">&apos;firefox&apos;</span>]);
+suite.only.notIn(<span class="hljs-regexp">/ie/</span>, <span class="hljs-string">&apos;opera&apos;</span>);</code></pre>
+<h2 id="nested-suites">Nested suites</h2><p>Suites can be nested. In this case, inner suite inherits <code>url</code>,
+<code>captureElements</code> from outer. This properties can be overridden in inner
+suites without affecting the outer. Each new suite causes reload of the
+browser, even if URL was not changed.</p><pre><code class="lang-js">gemini.suite(<span class="hljs-string">&apos;parent&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parent</span>) </span>{
+    parent.setUrl(<span class="hljs-string">&apos;/some/path&apos;</span>)
+        .setCaptureElements(<span class="hljs-string">&apos;.selector1&apos;</span>, <span class="hljs-string">&apos;.selector2&apos;</span>)
+        .capture(<span class="hljs-string">&apos;state&apos;</span>);
+
+    gemini.suite(<span class="hljs-string">&apos;first child&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">child</span>) </span>{
+        <span class="hljs-comment">//this suite captures same elements on different pages</span>
+        child.setUrl(<span class="hljs-string">&apos;/other/path&apos;</span>)
+            .capture(<span class="hljs-string">&apos;other state&apos;</span>);
+    });
+
+    gemini.suite(<span class="hljs-string">&apos;second child&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">child</span>) </span>{
+        <span class="hljs-comment">//this suite captures different elements on the same page</span>
+        child.setCaptureElements(<span class="hljs-string">&apos;.next-selector&apos;</span>)
+            .capture(<span class="hljs-string">&apos;third state&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, elements</span>) </span>{
+                <span class="hljs-comment">// ...</span>
+            });
+
+        gemini.suite(<span class="hljs-string">&apos;grandchild&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grandchild</span>) </span>{
+            <span class="hljs-comment">//child suites can have own childs</span>
+            grandchild.capture(<span class="hljs-string">&apos;fourth state&apos;</span>);
+
+        });
+    });
+
+    gemini.suite(<span class="hljs-string">&apos;third child&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">child</span>) </span>{
+        <span class="hljs-comment">//this suite uses completely different URL and set of elements</span>
+        child.setUrl(<span class="hljs-string">&apos;/some/another/path&apos;</span>)
+            .setCaptureElements(<span class="hljs-string">&apos;.different-selector&apos;</span>)
+            .capture(<span class="hljs-string">&apos;fifth state&apos;</span>);
+    });
+});</code></pre>
+<h2 id="available-actions">Available actions</h2><p>By calling methods of the <code>actions</code> argument of a callback you can program
+a series of steps to bring the block to desired state. All calls are chainable
+and next step is always executed after previous one has completed. In the
+following list <code>element</code> can be either CSS selector or result of a <code>find</code>
+call:</p><ul><li><p><code>click(element)</code> &#x2014; mouse click at the center of the element.</p></li>
+<li><p><code>doubleClick(element)</code> &#x2014; mouse double click at the center of the element.</p></li>
+<li><p><code>mouseDown(element, [button])</code> &#x2014; press a mouse button at the center of the
+element. Possible button values are: 0 &#x2014; left, 1 &#x2014; middle, 2 &#x2014; right. By
+default, left button is used.</p></li>
+<li><p><code>mouseUp([element], [button])</code> &#x2014; release previously pressed mouse button. If
+element is specified, move mouse to element and release then.</p></li>
+<li><p><code>mouseMove(element, [offset])</code> &#x2014; move mouse to the given element. Offset is
+specified relatively to the top left corner of the element. If not
+specified, mouse will be moved to the center of the element.</p></li>
+<li><p><code>dragAndDrop(element, dragTo)</code> &#x2014; drag <code>element</code> to other <code>dragTo</code> element.</p></li>
+<li><p><code>flick(speed, swipe)</code> &#x2014; flick starting anywhere on the screen using
+<code>speed.x</code> and <code>speed.y</code> speed.</p></li>
+<li><p><code>flick(offsets, speed, element)</code> &#x2014; flick element with starting point at its
+center by <code>offsets.x</code> and <code>offset.y</code> offsets.</p></li>
+<li><p><code>executeJS(function(window))</code> &#x2014; run specified function in a browser. The
+argument of a function is the browser&apos;s <code>window</code> object:</p><pre><code class="lang-js">actions.executeJS(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">window</span>) </span>{
+    <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">&apos;Hello!&apos;</span>);
+});</code></pre>
+<p>Note that function is executed in a browser context, so any references to
+ outer scope of callback won&apos;t work.</p><p><img align="absmiddle" alt=":warning:" class="emoji" src="../gitbook/gitbook-plugin-advanced-emoji/emojis/warning.png" title=":warning:"> <code>window.scrollTo</code> does not work in Opera@12.16 (see <a href="https://github.com/operasoftware/operaprestodriver/issues/108" target="_blank">details</a>).</p></li>
+<li><p><code>wait(milliseconds)</code> &#x2014; wait for specified amount of time before next action.
+If it is the last action in sequence, delay the screenshot for this amount
+of time.</p></li>
+<li><p><code>waitForElementToShow(selector, [timeout])</code> &#x2014; waits until element, matched
+by <code>selector</code> will become visible. Fails if element does not appear after
+<code>timeout</code> milliseconds (1000 by default).</p></li>
+<li><p><code>waitForElementToHide(selector, [timeout])</code> &#x2014; waits until element, matched
+by <code>selector</code> will become invisible or will be completely removed from DOM.
+Fails if element still visible after <code>timeout</code> milliseconds (1000 by
+default).</p></li>
+<li><p><code>waitForJSCondition(function(window), timeout)</code> &#x2014; waits until specified
+function return <code>true</code>. Function will be executed in browser context, so any
+references to outer scope won&apos;t work. Fails if after <code>timeout</code> milliseconds
+function still returns <code>false</code> (1000 by default).</p></li>
+<li><p><code>sendKeys([element], keys)</code> &#x2014; send a series of keyboard strokes to the
+specified element or currently active element on a page.</p><p>You can send a special key using one of the provided constants, i.e:</p><pre><code class="lang-js"> actions.sendKeys(gemini.ARROW_DOWN);</code></pre>
+</li></ul>
+<p>Full list of special keys (there are shortcuts for commonly used keys):</p><p><code>NULL</code>, <code>CANCEL</code>, <code>HELP</code>, <code>BACK_SPACE</code>, <code>TAB</code>, <code>CLEAR</code>, <code>RETURN</code>, <code>ENTER</code>,
+<code>LEFT_SHIFT</code> &#x21D4; <code>SHIFT</code>, <code>LEFT_CONTROL</code> &#x21D4; <code>CONTROL</code>, <code>LEFT_ALT</code> &#x21D4; <code>ALT</code>,
+<code>PAUSE</code>, <code>ESCAPE</code>, <code>SPACE</code>, <code>PAGE_UP</code>, <code>PAGE_DOWN</code>, <code>END</code>, <code>HOME</code>,
+<code>ARROW_LEFT</code> &#x21D4; <code>LEFT</code>, <code>ARROW_UP</code> &#x21D4; <code>UP</code>, <code>ARROW_RIGHT</code> &#x21D4; <code>RIGHT</code>,
+<code>ARROW_DOWN</code> &#x21D4; <code>DOWN</code>, <code>INSERT</code>, <code>DELETE</code>, <code>SEMICOLON</code>, <code>EQUALS</code>, <code>NUMPAD0</code>,
+<code>NUMPAD1</code>, <code>NUMPAD2</code>, <code>NUMPAD3</code>, <code>NUMPAD4</code>, <code>NUMPAD5</code>, <code>NUMPAD6</code>, <code>NUMPAD7</code>,
+<code>NUMPAD8</code>, <code>NUMPAD9</code>, <code>MULTIPLY</code>, <code>ADD</code>, <code>SEPARATOR</code>, <code>SUBTRACT</code>, <code>DECIMAL</code>,
+<code>DIVIDE</code>, <code>F1</code>, <code>F2</code>, <code>F3</code>, <code>F4</code>, <code>F5</code>, <code>F6</code>, <code>F7</code>, <code>F8</code>, <code>F9</code>, <code>F10</code>, <code>F11</code>,
+<code>F12</code>, <code>COMMAND</code> &#x21D4; <code>META</code>, <code>ZENKAKU_HANKAKU</code>.</p><ul><li><p><code>sendFile(element, path)</code> &#x2014; send file to the specified <code>input[type=file]</code>
+element. <code>path</code> must exist at local system (the one which <code>gemini</code> is
+executed on).</p></li>
+<li><p><code>focus(element)</code> &#x2014; set a focus to a specified element.</p></li>
+<li><p><code>setWindowSize(width, height)</code> &#x2014; change browser window dimensions. <img align="absmiddle" alt=":warning:" class="emoji" src="../gitbook/gitbook-plugin-advanced-emoji/emojis/warning.png" title=":warning:"> You can&apos;t set specific resolutions for browser Opera or mobile platforms. They use only full-screen resolution.</p></li>
+<li><p><code>tap(element)</code> &#x2014; tap specified element on touch enabled device.</p></li>
+<li><p><code>changeOrientation()</code> &#x2014; change orientation on touch enabled device (from <code>PORTRAIT</code> to <code>LANDSCAPE</code> and vice versa). <img align="absmiddle" alt=":warning:" class="emoji" src="../gitbook/gitbook-plugin-advanced-emoji/emojis/warning.png" title=":warning:"> Does not work on mobile emulation.</p></li></ul>
+<h2 id="passing-a-context-to-tests">Passing a context to tests</h2><p>Add <code>system.ctx</code> field to your configuration file:</p><pre><code class="lang-js"><span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-comment">// ...</span>
+    system: {
+        ctx: {
+            foo: <span class="hljs-string">&apos;bar&apos;</span>
+        }
+    }
+};</code></pre>
+<p><code>ctx</code> will be available in tests via <code>gemini.ctx</code> method:</p><pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(gemini.ctx); <span class="hljs-comment">// {foo: &apos;bar&apos;}</span></code></pre>
+<p><strong>Recommendation</strong>: use <code>ctx</code> in your tests in favor of global variables.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="commands.html" class="navigation navigation-prev " aria-label="Previous page: Command-line interface">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="programmatic-api.html" class="navigation navigation-next " aria-label="Next page: Programmatic API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Tests API","level":"1.4","depth":1,"next":{"title":"Programmatic API","level":"1.5","depth":1,"path":"doc/programmatic-api.md","ref":"doc/programmatic-api.md","articles":[]},"previous":{"title":"Command-line interface","level":"1.3","depth":1,"path":"doc/commands.md","ref":"doc/commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/gemini-testing/gemini"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit on github","base":"https://github.com/gemini-testing/gemini/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gemini","gitbook":"3.2.0","description":"Visual regression testing tool"},"file":{"path":"doc/tests.md","mtime":"2019-07-29T06:38:47.154Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-07-29T06:41:15.469Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

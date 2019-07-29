@@ -1,0 +1,490 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Programmatic API · Gemini</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="events.html" />
+    
+    
+    <link rel="prev" href="tests.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Command-line interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="programmatic-api.html">
+            
+                <a href="programmatic-api.html">
+            
+                    
+                    Programmatic API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Plugins API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <a target="_blank" href="https://www.npmjs.com/browse/keyword/gemini-plugin">
+            
+                    
+                    Plugins list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../CHANGELOG.html">
+            
+                <a href="../CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../CLA.html">
+            
+                <a href="../CLA.html">
+            
+                    
+                    CLA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Programmatic API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="programmatic-api-experimental">Programmatic API (experimental)</h1><p>With the help of <code>gemini/api</code> module you can use <strong>Gemini</strong> programmatically
+in your scripts or build tools plugins.</p><p>First step is to create <strong>Gemini</strong> instance with a config:</p><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Gemini = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gemini/api&apos;</span>);
+
+<span class="hljs-keyword">var</span> gemini = <span class="hljs-keyword">new</span> Gemini({
+    projectRoot: <span class="hljs-string">&apos;/path/to/project&apos;</span>,
+    gridUrl: <span class="hljs-string">&apos;http://example.com/grid&apos;</span>,
+    rootUrl: <span class="hljs-string">&apos;http://test.com&apos;</span>
+    ...
+});</code></pre>
+<ul><li><p><code>new Gemini(filePath)</code> will load config from YAML file at given paths;</p></li>
+<li><p><code>new Gemini(options)</code> will create config from specified options (see config
+file reference). Options <strong>must</strong> have <code>projectRoot</code> setting specified.</p></li></ul>
+<h2 id="accessing-the-config-options">Accessing the config options</h2><p>You can get values of options via <code>gemini.config</code> property:</p><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Gemini = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gemini/api&apos;</span>),
+    gemini = <span class="hljs-keyword">new</span> Gemini(<span class="hljs-string">&apos;/path/to/config&apos;</span>);
+
+<span class="hljs-built_in">console</span>.log(gemini.config.rootUrl);
+</code></pre>
+<h2 id="reading-the-tests">Reading the tests</h2><p><code>gemini.readTests(paths, options)</code> &#x2014; read all of the tests from specified paths into
+one suite collection.</p><ul><li><code>paths</code> is an array of files or directories paths containing Gemini tests.
+If not specified, will look for tests in <code>$projectRoot/gemini</code> directory.
+</li></ul>
+<p>Options:</p><ul><li><code>grep</code> &#x2014; regular expression to filter suites to read. By default, all tests
+will be added to collection. If this option is set, only suites with name matching the
+pattern will be added to collection.
+</li></ul>
+<p>Returns promise which resolves to a <code>SuiteCollection</code> object.</p><p>Here is the example that prints all top level suite names:</p><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Gemini = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;gemini/api&apos;</span>),
+    gemini = <span class="hljs-keyword">new</span> Gemini(<span class="hljs-string">&apos;/path/to/config&apos;</span>);
+
+gemini.readTests()
+    .done(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">collection</span>) </span>{
+        collection.topLevelSuites().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suite</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(suite.name);
+        });
+    });</code></pre>
+<h2 id="suite-collection">Suite Collection</h2><p>You can create SuiteCollection object by using <code>gemini.SuiteCollection</code> constructor.
+Also SuiteCollection object is returned by <code>gemini.readTests</code> method.</p><p>SuiteCollection API:</p><ul><li><p><code>SuiteCollection([suites])</code> &#x2014; constructor.
+Takes optional <code>suites</code> parameter, these are the top level suites.</p></li>
+<li><p><code>add(suite)</code> &#x2014; add suite to collection.</p></li>
+<li><p><code>topLevelSuites()</code> &#x2014; return array of top level suites.</p></li>
+<li><p><code>allSuites()</code> &#x2014; return array of all suites in collection. Goes through all suites
+children recursively.</p></li>
+<li><p><code>disableAll()</code> &#x2014; disable all suites in collection</p></li>
+<li><p><code>enableAll()</code> &#x2014; enable all suites in collection</p></li>
+<li><p><code>disable(suite, [opts])</code> &#x2014; disable suite and all its children</p><p><code>suite</code> can be a real suite object, or suite full name</p><p><code>opts</code> are optional:</p><ul><li><code>opts.browser</code> &#x2014; browser to disable suite in
+</li>
+<li><code>opts.state</code> &#x2014; disable only specified state
+</li></ul>
+</li>
+<li><p><code>enable(suite, [opts])</code> &#x2014; enable suite and all its children. Arguments are the same as in
+<code>disable</code></p></li></ul>
+<p>Example on how to run only certain states in certain browsers:</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> collection = gemini.readTests(paths),
+    suite = findSomeSuite(collection);
+
+collection
+  .disableAll()
+  .enable(suite, {state: <span class="hljs-string">&apos;some-state&apos;</span>, browser: <span class="hljs-string">&apos;ie9&apos;</span>})
+  .enable(suite, {state: <span class="hljs-string">&apos;other-state&apos;</span>, browser: <span class="hljs-string">&apos;firefox&apos;</span>});
+
+<span class="hljs-keyword">return</span> gemini.test(collection);</code></pre>
+<h3 id="suite">Suite</h3><p>Suite objects have the following properties:</p><ul><li><p><code>id</code> &#x2014; unique numeric identificator of the suite. Automatically generated
+when loading suites.</p></li>
+<li><p><code>name</code> &#x2014; the name of the suite.</p></li>
+<li><p><code>children</code> &#x2014; array of subsuites of the current suite.</p></li>
+<li><p><code>states</code> &#x2014; array of the <code>State</code> objects, defined in a suite.</p></li></ul>
+<h3 id="state">State</h3><p>Suite objects have the following properties:</p><ul><li><code>name</code> &#x2014; the name of the state.
+</li></ul>
+<p>Methods:</p><ul><li><code>shouldSkip(browserId)</code> &#x2014; returns <code>true</code> if this state should be skipped for
+a browser.
+</li></ul>
+<h2 id="updating-reference-screenshots">Updating reference screenshots</h2><p>Use <code>gemini.update(paths, options)</code> method.
+By default, this command will update reference images that have diff and generate new reference images for new tests.</p><p><code>paths</code> is the array of file paths or directories to run the suites from
+or <code>SuiteCollection</code> instance.</p><p>Options:</p><ul><li><p><code>reporters</code> &#x2014; array of reporters to use. Each element can be either string
+(to use corresponding built-in reporter) or reporter function (to use
+a custom reporter).</p></li>
+<li><p><code>grep</code> &#x2014; regular expression to filter suites to run. By default, all tests
+will be executed. If this option is set, only suites with name matching the
+pattern will be executed.</p></li>
+<li><p><code>browsers</code> &#x2014; array of browser ids to execute tests in. By default, tests are
+executed in all browsers, specified in config.</p></li>
+<li><p><code>sets</code> &#x2014; array of set names to execute tests in. By default, tests are
+executed for all sets, specified in config.</p></li>
+<li><p><code>diff</code>(Boolean) &#x2014; update only existing images with some diff, states with no reference images will be ignored.</p></li>
+<li><p><code>new</code>(Boolean) &#x2014; generate only missing images.</p></li></ul>
+<p>Returns promise that resolve to a stats object with following keys:</p><ul><li><p><code>total</code> &#x2014; total number of tests executed.</p></li>
+<li><p><code>skipped</code> &#x2014; number of skipped tests.</p></li></ul>
+<p>Rejects promise if critical error occurred.</p><h2 id="running-tests">Running tests</h2><p>Use <code>gemini.test(paths, options)</code> method.</p><p><code>paths</code> is the array of file paths or directories to run the tests from
+or <code>SuiteCollection</code> instance.</p><p>Options:</p><ul><li><p><code>reporters</code> &#x2014; array of reporter to use. Each element can be either string
+(to use corresponding built-in reporter) or reporter function (to use
+a custom reporter).</p></li>
+<li><p><code>grep</code> &#x2014; regular expression to filter suites to run. By default, all tests
+will be executed. If this option is set, only suites with name matching the
+pattern will be executed.</p></li>
+<li><p><code>browsers</code> &#x2014; array of browser ids to execute tests in. By default, tests are
+executed in all browsers, specified in config.</p></li>
+<li><p><code>sets</code> &#x2014; array of set names to execute tests in. By default, tests are
+executed for all sets, specified in config.</p></li></ul>
+<p>Returns promise that resolve to a stats object with following keys:</p><ul><li><p><code>total</code> &#x2014; total number of tests executed.</p></li>
+<li><p><code>skipped</code> &#x2014; number of skipped tests.</p></li>
+<li><p><code>passed</code> &#x2014; number of passed tests.</p></li>
+<li><p><code>failed</code> &#x2014; number of failed tests.</p></li></ul>
+<p>Rejects promise if critical error occurred.</p><h2 id="halting">Halting</h2><pre><code class="lang-js">gemini.halt(error, [timeout=<span class="hljs-number">60000</span>ms]);</code></pre>
+<p>Method for abnormal termination of the test run in case of a terminal error. If process fails to gracefully shutdown in <code>timeout</code> milliseconds, it would be forcibly terminated (unless <code>timeout</code> is explicitly set to <code>0</code>).</p><h2 id="utilites">Utilites</h2><ul><li><p><code>gemini.getScreenshotPath(suite, stateName, browserId)</code> &#x2014; returns path to
+the reference screenshot of the specified state for specified browser.</p></li>
+<li><p><code>gemini.getBrowserCapabilites(browserId)</code> &#x2014; returns WebDriver capabilities
+for specified <code>browserId</code>.</p></li>
+<li><p><code>gemini.browserIds</code> &#x2014; list of all browser identificators to use for tests.</p></li>
+<li><p><code>Gemini.readRawConfig</code> &#x2014; reads configuration file for specified <code>filePath</code>
+and returns content as JS object. This method does not validate and analyze
+gemini configuration.</p></li></ul>
+<h2 id="events">Events</h2><p><code>gemini</code> instance emits some events, which can be used by external scripts or
+plugins.</p><p><a href="events.html">See the details</a> about available events.</p><p>Plugin example with the listening on the events:</p><pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = (gemini, options) =&gt; {
+    gemini.on(gemini.events.START_RUNNER, () =&gt; {
+        <span class="hljs-keyword">return</span> setUp(gemini.config, options.param); <span class="hljs-comment">// config can be mutated</span>
+    });
+
+    gemini.on(gemini.events.END_RUNNER, () =&gt; {
+        <span class="hljs-keyword">return</span> tearDown();
+    });
+};</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tests.html" class="navigation navigation-prev " aria-label="Previous page: Tests API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="events.html" class="navigation navigation-next " aria-label="Next page: Events">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Programmatic API","level":"1.5","depth":1,"next":{"title":"Events","level":"1.6","depth":1,"path":"doc/events.md","ref":"doc/events.md","articles":[]},"previous":{"title":"Tests API","level":"1.4","depth":1,"path":"doc/tests.md","ref":"doc/tests.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/gemini-testing/gemini"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit on github","base":"https://github.com/gemini-testing/gemini/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gemini","gitbook":"3.2.0","description":"Visual regression testing tool"},"file":{"path":"doc/programmatic-api.md","mtime":"2019-07-29T06:38:47.153Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-07-29T06:41:15.469Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

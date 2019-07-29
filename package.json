@@ -1,0 +1,94 @@
+{
+  "name": "gemini",
+  "version": "7.5.1",
+  "description": "UI Screenshot testing utility",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "bin": {
+    "gemini": "./bin/gemini"
+  },
+  "main": "api.js",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "chalk": "^1.1.3",
+    "commander": "^2.12.2",
+    "css": "^2.1.0",
+    "debug": "^2.2.0",
+    "fs-extra": "^0.30.0",
+    "gemini-configparser": "^1.0.0",
+    "gemini-core": "^3.6.1",
+    "gemini-coverage": "^2.0.0",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "graceful-fs": "^4.1.11",
+    "handlebars": "^4.0.5",
+    "inherit": "~2.2.1",
+    "js-yaml": "^3.2.5",
+    "lodash": "^4.15.0",
+    "micromatch": "^2.3.11",
+    "node-fetch": "^1.6.3",
+    "plugins-loader": "^1.1.0",
+    "png-img": "^2.1.0",
+    "resolve": "^1.1.0",
+    "sizzle": "^2.2.0",
+    "source-map": "^0.5.3",
+    "striptags": "2.1.1",
+    "wd": "^1.6.2",
+    "worker-farm": "^1.3.1"
+  },
+  "devDependencies": {
+    "app-module-path": "^1.1.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
+    "conventional-changelog-lint": "^1.0.1",
+    "coveralls": "^2.11.2",
+    "eslint": "^3.1.1",
+    "eslint-config-gemini-testing": "^2.0.0",
+    "gitbook-cli": "^2.3.0",
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "glob-extra": "^4.0.0",
+    "husky": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^2.1.0",
+    "proxyquire": "^1.7.3",
+    "q": "^1.5.1",
+    "sinon": "^2.2.0",
+    "standard-version": "^4.0.0"
+  },
+  "scripts": {
+    "test-unit": "istanbul test _mocha -- --recursive test/unit",
+    "postpublish": "npm run publish-site",
+    "test-func": "istanbul test _mocha test/functional",
+    "test-browser": "istanbul test _mocha test/browser",
+    "test": "istanbul test _mocha -- --recursive test/unit test/functional test/browser",
+    "lint": "eslint .",
+    "release": "standard-version",
+    "precommit": "npm run lint",
+    "commitmsg": "conventional-changelog-lint -e",
+    "preversion": "npm run lint && npm test",
+    "prepare-site": "gitbook install",
+    "build-site": "npm run prepare-site && gitbook build",
+    "publish-site": "npm run build-site && cd _book && git init && git add -A && git commit -m 'Update site' && git push --force git@github.com:gemini-testing/gemini-testing.github.io.git master"
+  },
+  "author": "Sergey Tatarintsev <tatarincev.serg@yandex.ua> (https://github.com/SevInf)",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gemini-testing/gemini.git"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "screenshot",
+    "selenium",
+    "layout"
+  ],
+  "bugs": {
+    "url": "https://github.com/gemini-testing/gemini/issues"
+  },
+  "homepage": "https://github.com/gemini-testing/gemini"
+}

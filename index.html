@@ -1,0 +1,517 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Introduction · Gemini</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="doc/config.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="doc/config.html">
+            
+                <a href="doc/config.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="doc/commands.html">
+            
+                <a href="doc/commands.html">
+            
+                    
+                    Command-line interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="doc/tests.html">
+            
+                <a href="doc/tests.html">
+            
+                    
+                    Tests API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="doc/programmatic-api.html">
+            
+                <a href="doc/programmatic-api.html">
+            
+                    
+                    Programmatic API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="doc/events.html">
+            
+                <a href="doc/events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="doc/plugins.html">
+            
+                <a href="doc/plugins.html">
+            
+                    
+                    Plugins API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <a target="_blank" href="https://www.npmjs.com/browse/keyword/gemini-plugin">
+            
+                    
+                    Plugins list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="CONTRIBUTING.html">
+            
+                <a href="CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="CHANGELOG.html">
+            
+                <a href="CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="CLA.html">
+            
+                <a href="CLA.html">
+            
+                    
+                    CLA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="gemini">Gemini</h1><p><a href="https://www.npmjs.com/package/gemini" target="_blank"><img alt="npm" src="https://img.shields.io/npm/v/gemini.svg?maxAge=2592000"></a>
+<a href="https://travis-ci.org/gemini-testing/gemini" target="_blank"><img alt="Build Status" src="https://travis-ci.org/gemini-testing/gemini.svg?branch=master"></a>
+<a href="https://coveralls.io/r/gemini-testing/gemini" target="_blank"><img alt="Coverage Status" src="https://img.shields.io/coveralls/gemini-testing/gemini.svg"></a>
+<a href="https://gitter.im/gemini-testing/gemini?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank"><img alt="Join the chat at https://gitter.im/gemini-testing/gemini" src="https://badges.gitter.im/Join%20Chat.svg"></a>
+<a href="http://waffle.io/gemini-testing/gemini" target="_blank"><img alt="Stories on waffle.io" src="https://img.shields.io/badge/waffle-dashboard-green.svg"></a></p><p><a href="https://github.com/gemini-testing/gemini" target="_blank">Gemini</a> is a utility for regression
+testing the visual appearance of web pages.</p><p>Gemini allows you to:</p><ul><li><p>Work with different browsers:</p><ul><li>Google Chrome (tested in latest version)
+</li>
+<li>Mozilla Firefox (tested in latest version)
+</li>
+<li>IE8+
+</li>
+<li>Opera 12+
+</li></ul>
+</li>
+<li><p>Test separate sections of a web page</p></li>
+<li><p>Include the <code>box-shadow</code> and <code>outline</code> properties when calculating element position and size</p></li>
+<li><p>Ignore some special case differences between images (rendering artifacts, text caret,
+etc.)</p></li>
+<li><p>Gather CSS test coverage statistics</p></li></ul>
+<p><strong>Gemini</strong> was created at <a href="http://www.yandex.com/" target="_blank">Yandex</a> and is especially
+useful to UI library developers.</p><h2 id="quick-start">Quick start</h2><h3 id="installing">Installing</h3><pre><code>npm install -g gemini
+npm install -g selenium-standalone
+selenium-standalone install</code></pre>
+<h3 id="configuring">Configuring</h3><p>Put the <code>.gemini.js</code> file in the root of your project:</p><pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
+    rootUrl: <span class="hljs-string">&apos;http://yandex.ru&apos;</span>,
+    gridUrl: <span class="hljs-string">&apos;http://127.0.0.1:4444/wd/hub&apos;</span>,
+
+    browsers: {
+        chrome: {
+            desiredCapabilities: {
+                browserName: <span class="hljs-string">&apos;chrome&apos;</span>
+            }
+        }
+    }
+};</code></pre>
+<h3 id="writing-tests">Writing tests</h3><p>Write a test and put it in the <code>gemini</code> folder in the root of your project:</p><pre><code class="lang-javascript">gemini.suite(<span class="hljs-string">&apos;yandex-search&apos;</span>, (suite) =&gt; {
+    suite.setUrl(<span class="hljs-string">&apos;/&apos;</span>)
+        .setCaptureElements(<span class="hljs-string">&apos;.home-logo&apos;</span>)
+        .capture(<span class="hljs-string">&apos;plain&apos;</span>);
+});</code></pre>
+<h3 id="saving-reference-images">Saving reference images</h3><p>You have written a new test and should save a reference image for it:</p><pre><code>gemini update</code></pre>
+<h3 id="running-tests">Running tests</h3><p>Start <code>selenium-standalone</code> in a separate tab before running the tests:</p><pre><code>selenium-standalone start</code></pre>
+<p>Run gemini tests:</p><pre><code>gemini test</code></pre>
+<h2 id="dependencies">Dependencies</h2><p>Required software:</p><ol><li><p>WebDriver server implementation. There are several options:</p><ul><li><p><a href="http://docs.seleniumhq.org/download/" target="_blank">Selenium Server</a> &#x2014; for testing in
+different browsers. Launch with the <code>selenium-standalone start</code> command (if you will get error like &quot;No Java runtime present, requesting install.&quot; you should install <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java Development Kit (JDK)</a> for your OS.).</p></li>
+<li><p><a href="https://sites.google.com/a/chromium.org/chromedriver/" target="_blank">ChromeDriver</a> &#x2014; for
+testing in Google Chrome. Launch with the <code>chromedriver --port=4444 --url-base=wd/hub</code> command.</p></li>
+<li><p><a href="http://phantomjs.org/" target="_blank">PhantomJS</a> &#x2014; launch with the <code>phantomjs
+--webdriver=4444</code> command.</p></li>
+<li><p>Cloud WebDriver services, such as
+<a href="http://saucelabs.com/" target="_blank">SauceLabs</a> or
+<a href="http://www.browserstack.com/" target="_blank">BrowserStack</a></p></li></ul>
+</li></ol>
+<ol><li>Compiler with support for C++11 (<code>GCC@4.6</code> or higher). This is a
+<a href="https://github.com/gemini-testing/png-img" target="_blank">png-img</a> requirement.
+Compiling on Windows machines requires the <a href="https://github.com/nodejs/node-gyp#on-windows" target="_blank">node-gyp prerequisites</a>.
+</li></ol>
+<h2 id="installing">Installing</h2><p>To install the utility, use the <a href="https://www.npmjs.org/" target="_blank">npm</a> <code>install</code> command:</p><pre><code class="lang-sh">npm install -g gemini</code></pre>
+<p>Global installation is used for launching commands.</p><h2 id="configuring">Configuring</h2><p><strong>Gemini</strong> is configured using a config file at the root of the project.
+Gemini can use one of the following files:</p><ul><li><code>.gemini.conf.js</code>
+</li>
+<li><code>.gemini.conf.json</code>
+</li>
+<li><code>.gemini.conf.yml</code>
+</li>
+<li><code>.gemini.js</code>
+</li>
+<li><code>.gemini.json</code>
+</li>
+<li><code>.gemini.yml</code>
+</li></ul>
+<p>Let&apos;s say we want to run our tests only in the locally installed <code>PhantomJS</code>.</p><p>In this case, the minimal configuration file will only need to have the root URL
+of your web app and the WebDriver capabilities of <code>PhantomJS</code>:
+For example,</p><pre><code class="lang-yaml"><span class="hljs-attr">rootUrl:</span> http://yandex.com
+<span class="hljs-attr">browsers:</span>
+<span class="hljs-attr">  PhantomJS:</span>
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      browserName:</span> phantomjs</code></pre>
+<p>Also, you need to run <code>PhantomJS</code> manually in <code>WebDriver</code> mode:</p><pre><code>phantomjs --webdriver=4444</code></pre>
+<p>If you are using a remote WebDriver server, you can specify its URL with the
+<code>gridUrl</code> option:</p><pre><code class="lang-yaml"><span class="hljs-attr">rootUrl:</span> http://yandex.com
+<span class="hljs-attr">gridUrl:</span> http://selenium.example.com:<span class="hljs-number">4444</span>/wd/hub
+
+<span class="hljs-attr">browsers:</span>
+<span class="hljs-attr">  chrome:</span>
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      browserName:</span> chrome
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;45.0&quot;</span>
+
+<span class="hljs-attr">  firefox:</span>
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      browserName:</span> firefox
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;39.0&quot;</span>
+</code></pre>
+<p>You can also set up each browser to have its own node:</p><pre><code class="lang-yaml"><span class="hljs-attr">rootUrl:</span> http://yandex.com
+
+<span class="hljs-attr">browsers:</span>
+<span class="hljs-attr">  chrome:</span>
+<span class="hljs-attr">    gridUrl:</span> http://chrome-node.example.com:<span class="hljs-number">4444</span>/wd/hub
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      browserName:</span> chrome
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;45.0&quot;</span>
+
+<span class="hljs-attr">  firefox:</span>
+<span class="hljs-attr">    gridUrl:</span> http://firefox-node.example.com:<span class="hljs-number">4444</span>/wd/hub
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      browserName:</span> firefox
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;39.0&quot;</span>
+</code></pre>
+<h3 id="other-configuration-options">Other configuration options</h3><p><a href="doc/config.html">See the details</a> of the config file structure and available
+options.</p><h2 id="writing-tests">Writing tests</h2><p>Each of the blocks that are being tested may be in one of the determined states.
+States are tested with the help of chains of step-by-step actions declared in a block&apos;s
+test suites.</p><p>For example, let&apos;s write a test for a search block at
+<a href="http://www.yandex.com" target="_blank">yandex.com</a>:</p><pre><code class="lang-javascript">gemini.suite(<span class="hljs-string">&apos;yandex-search&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suite</span>) </span>{
+    suite.setUrl(<span class="hljs-string">&apos;/&apos;</span>)
+        .setCaptureElements(<span class="hljs-string">&apos;.search2__input&apos;</span>)
+        .capture(<span class="hljs-string">&apos;plain&apos;</span>)
+        .capture(<span class="hljs-string">&apos;with text&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">actions, find</span>) </span>{
+            actions.sendKeys(find(<span class="hljs-string">&apos;.search2__input .input__control&apos;</span>), <span class="hljs-string">&apos;hello gemini&apos;</span>);
+        });
+});</code></pre>
+<p>We are creating a new test suite <code>yandex-search</code>, assuming that we will capture the
+<code>.search2__input</code> element from the root URL <code>http://yandex.com</code>. We know that the
+block has two states:</p><ul><li><code>plain</code> &#x2014; right after the page is loaded
+</li>
+<li><code>with text</code> &#x2014; with the <code>hello gemini</code> text inserted into <code>.search2__input .input__control</code>
+</li></ul>
+<p>States are executed one after another in the order in which they are defined, without the browser
+reloading in between.</p><p><a href="doc/tests.html">See the details</a> of test creation methods.</p><h2 id="using-cli">Using CLI</h2><p>To complete the test creation procedure, you need to take reference shots using
+the following command:</p><pre><code>gemini update [paths to test suites]</code></pre>
+<p>To launch a test (to compare the current state of a block with a reference shot), use
+the command:</p><pre><code>gemini test [paths to test suites]</code></pre>
+<p><a href="doc/commands.html">See the details</a> of interaction with CLI and available
+options.</p><h2 id="gui">GUI</h2><p>You can use the <code>Gemini</code> graphical user interface instead of the command line. It
+is located in the <a href="https://github.com/gemini-testing/gemini-gui" target="_blank">gemini-gui</a> package
+and must be installed additionally:</p><pre><code>npm install -g gemini-gui</code></pre>
+<p>GUI advantages:</p><ul><li><p>Handy preview of reference shots</p></li>
+<li><p>Clear real-time demonstration of the differences between a reference shot and
+the current state of a block</p></li>
+<li><p>Easy to update reference shots</p></li></ul>
+<h2 id="plugins">Plugins</h2><p>Gemini can be extended with plugins. You can choose from the <a href="https://www.npmjs.com/browse/keyword/gemini-plugin" target="_blank">existing
+plugins</a> or <a href="doc/plugins.html">write your
+own</a>. To use a plugin, install and enable it in your
+<code>.gemini.yml</code>:</p><pre><code class="lang-yaml"><span class="hljs-attr">system:</span>
+<span class="hljs-attr">  plugins:</span>
+<span class="hljs-attr">    some-awesome-plugin:</span>
+<span class="hljs-attr">      plugin-option:</span> value</code></pre>
+<h2 id="html-report">HTML report</h2><p>To see the difference between the current state of a block and a reference picture
+more clearly, use the <a href="https://github.com/gemini-testing/html-reporter" target="_blank">HTML reporter</a> - plugin for gemini. This
+plugin produces HTML report, which displays reference image, current image and
+differences between them, for each state in each browser. When all tests are
+completed, you will see a link to HTML report.</p><h2 id="programmatic-api">Programmatic API</h2><p>To use Gemini in your scripts or build tools, you can use the experimental
+<a href="doc/programmatic-api.html">programmatic API</a>.</p><h2 id="events">Events</h2><p>To learn more about all events in Gemini, see the <a href="doc/events.html">events documentation</a>.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="doc/config.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Configuration">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Configuration","level":"1.2","depth":1,"path":"doc/config.md","ref":"doc/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/gemini-testing/gemini"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit on github","base":"https://github.com/gemini-testing/gemini/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gemini","gitbook":"3.2.0","description":"Visual regression testing tool"},"file":{"path":"README.md","mtime":"2019-07-29T06:38:47.152Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-07-29T06:41:15.469Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

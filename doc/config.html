@@ -1,0 +1,609 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Configuration · Gemini</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="commands.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Command-line interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="programmatic-api.html">
+            
+                <a href="programmatic-api.html">
+            
+                    
+                    Programmatic API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Plugins API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <a target="_blank" href="https://www.npmjs.com/browse/keyword/gemini-plugin">
+            
+                    
+                    Plugins list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../CHANGELOG.html">
+            
+                <a href="../CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../CLA.html">
+            
+                <a href="../CLA.html">
+            
+                    
+                    CLA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Configuration</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="gemini-configuration">Gemini configuration</h1><p>In the following example <strong>gemini</strong> is configured using <code>.gemini.yml</code> file at the root of the project.
+But you can use one of the files specified in <a href="../readme.md#configuring">configuring section</a>.</p><p>Complete example with all available settings looks like this, but you&apos;ll need
+to specify only a few settings specific for your project:</p><pre><code class="lang-yaml"><span class="hljs-attr">rootUrl:</span> https://example.com/root
+<span class="hljs-attr">gridUrl:</span> http://webdriver.example.com
+<span class="hljs-attr">desiredCapabilities:</span>
+<span class="hljs-attr">  commonThing:</span> value
+<span class="hljs-attr">calibrate:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">tolerance:</span> <span class="hljs-number">3.5</span>
+<span class="hljs-attr">antialiasingTolerance:</span> <span class="hljs-number">0</span>,
+<span class="hljs-attr">compareOpts:</span>
+<span class="hljs-attr">  stopOnFirstFail:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">buildDiffOpts:</span>
+<span class="hljs-attr">  ignoreAntialiasing:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  ignoreCaret:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">httpTimeout:</span> <span class="hljs-number">5000</span>
+<span class="hljs-attr">sessionRequestTimeout:</span> <span class="hljs-number">60000</span>
+<span class="hljs-attr">sessionQuitTimeout:</span> <span class="hljs-number">5000</span>
+<span class="hljs-attr">screenshotsDir:</span> ./screens
+<span class="hljs-attr">windowSize:</span> <span class="hljs-number">1600</span>x1080
+<span class="hljs-attr">sessionsPerBrowser:</span> <span class="hljs-number">2</span>
+<span class="hljs-attr">suitesPerSession:</span> <span class="hljs-number">100</span>
+
+<span class="hljs-attr">browsers:</span>
+<span class="hljs-attr">  chrome-latest:</span>
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;37.0&quot;</span>
+<span class="hljs-attr">      browserName:</span> chrome
+<span class="hljs-attr">      platform:</span> LINUX
+
+<span class="hljs-attr">  firefox-latest:</span>
+<span class="hljs-attr">    rootUrl:</span> https://example.com/special-for-ff
+<span class="hljs-attr">    screenshotsDir:</span> ./ff-screens
+<span class="hljs-attr">    calibrate:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    desiredCapabilities:</span>
+<span class="hljs-attr">      version:</span> <span class="hljs-string">&quot;31.0&quot;</span>
+<span class="hljs-attr">      browserName:</span> firefox
+<span class="hljs-attr">      platform:</span> LINUX
+
+<span class="hljs-attr">sets:</span>
+<span class="hljs-attr">  ff:</span>
+<span class="hljs-attr">    files:</span>
+<span class="hljs-bullet">     -</span> gemini/ff
+<span class="hljs-attr">    browsers:</span>
+<span class="hljs-bullet">     -</span> firefox-latest
+<span class="hljs-attr">  chrome:</span>
+<span class="hljs-attr">    files:</span>
+<span class="hljs-bullet">     -</span> gemini/chrome
+<span class="hljs-attr">    browsers:</span>
+<span class="hljs-bullet">     -</span> chrome-latest
+
+<span class="hljs-attr">system:</span>
+<span class="hljs-attr">  projectRoot:</span> ../project
+<span class="hljs-attr">  sourceRoot:</span> ../project/src
+<span class="hljs-attr">  tempDir:</span> ./temp-images
+<span class="hljs-attr">  exclude:</span>
+<span class="hljs-bullet">    -</span> node_modules/**
+<span class="hljs-attr">  plugins:</span>
+<span class="hljs-attr">    teamcity:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  debug:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  parallelLimit:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">  workers:</span> <span class="hljs-number">4</span>
+<span class="hljs-attr">  diffColor:</span> <span class="hljs-string">&apos;#ff0000&apos;</span>
+<span class="hljs-attr">  coverage:</span>
+<span class="hljs-attr">    enabled:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    exclude:</span>
+<span class="hljs-bullet">     -</span> libs/**
+<span class="hljs-bullet">     -</span> <span class="hljs-string">&quot;*.blocks/**/*.tests/blocks/**&quot;</span>
+<span class="hljs-bullet">     -</span> <span class="hljs-string">&quot;*.blocks/**/*.tests/*.blocks/**&quot;</span>
+<span class="hljs-attr">    html:</span> <span class="hljs-literal">false</span></code></pre>
+<h2 id="system-settings">System settings</h2><p>There is a <code>system</code> section in the config file, which contains global <code>gemini</code>
+settings. These settings can not be set per-browser.</p><ul><li><p><code>projectRoot</code> &#x2014; root directory of a project. All relative paths in config or
+options will be resolved relatively to it. By default it is the directory
+config file is placed in.</p></li>
+<li><p><code>sourceRoot</code> &#x2014; directory which contains the source files.  Local sources
+will be used in the coverage report when the source map is available, but
+the sources can not be downloaded via URLs from the test pages. By default,
+it is equal to <code>projectRoot</code>.</p></li>
+<li><p><code>tempDir</code> &#x2014; directory to save temporary images (current states) to. This
+directory should exist. Gemini will create own temp directory in it with name
+starting with <code>.gemini.tmp.</code> where all temporary images will be saved.
+After run created directory will be removed. If not set system temp
+directory will be used.</p></li>
+<li><p><code>exclude</code> &#x2014; array of glob patterns to exclude paths from the test search. For example:</p></li></ul>
+<pre><code class="lang-yaml"><span class="hljs-attr">exclude:</span>
+<span class="hljs-bullet">  -</span> node_modules/**
+<span class="hljs-bullet">  -</span> gemini/helpers/**
+<span class="hljs-bullet">  -</span> foo/{bar,baz}/*.js</code></pre>
+<ul><li><p><code>plugins</code> &#x2014; list of plugins to enable. Should have form of <code>pluginName:
+settings</code>. For example:</p><pre><code class="lang-yaml"><span class="hljs-attr">plugins:</span>
+<span class="hljs-attr">  teamcity:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  saucelabs:</span>
+<span class="hljs-attr">    username:</span> user
+<span class="hljs-attr">    password:</span> pass</code></pre>
+<p>Each plugin should be an installed npm package.</p></li>
+<li><p><code>debug</code> &#x2014; turn on debug logging to the terminal.</p></li>
+<li><p><code>parallelLimit</code> &#x2014; by default, <code>gemini</code> will run all browsers simultaneously.
+Sometimes (i.e. when using cloud services, such as SauceLabs) you have
+a limit of a number of browser that can be run once at a time. Use this
+option to limit the number of browsers that <code>gemini</code> will try to run in
+parallel.</p></li>
+<li><p><code>workers</code> &#x2014; by default, <code>gemini</code> will run as many parallel
+workers as cores available, this option allows you to limit it.</p></li>
+<li><p><code>diffColor</code> &#x2014; specifies color which will be used to highlight differences
+between images. Specified in hexadecimal RGB (<code>#RRGGBB</code>). Magenta by default
+(<code>#FF00FF</code>).</p></li>
+<li><p><code>coverage</code> &#x2014; <code>gemini</code> can gather and report CSS tests coverage. It supports
+source maps, so you can get the report even if you are using preprocessor or
+minifier. The JSON and html reports are saved to <code>gemini-coverage</code>
+directory. There are many settings under this section:</p><ul><li><p><code>enabled</code> &#x2014; set to <code>true</code> to enable coverage reporting.</p></li>
+<li><p><code>map</code> &#x2014; function which can be used for overriding default logic of source root path resolving.
+By default it returns path to CSS file relative to the source root.
+This function accepts 2 arguments:</p><ul><li><code>url</code> &#x2014; full url of source file which coverage should be obtained
+</li>
+<li><code>rootUrl</code> &#x2014; root url specified in the config for current browser
+</li></ul>
+</li>
+<li><p><code>exclude</code> &#x2014; array of file paths or glob patterns to exclude from coverage
+report. For example:</p><pre><code class="lang-yaml"><span class="hljs-attr">  system:</span>
+<span class="hljs-attr">    coverage:</span>
+<span class="hljs-attr">      exclude:</span>
+<span class="hljs-bullet">        -</span> libs/**
+<span class="hljs-bullet">        -</span> path/to/some.css</code></pre>
+<ul><li><code>html</code> &#x2014; set to false to disable html report and save only JSON.
+</li></ul>
+</li></ul>
+</li></ul>
+<ul><li><code>ctx</code> &#x2014; a context which will be available in tests via method <code>gemini.ctx</code>.
+</li></ul>
+<h2 id="browsers-settings">Browsers settings</h2><p>These settings specify the configuration of each browser used for tests. Each
+setting can be specified in two ways:</p><ol><li>At the top level of a config file. This way it affects all browsers.
+</li>
+<li>Inside the <code>browsers</code> section. This way it will affect only one browser and
+override top level value.
+</li></ol>
+<p>Format of the browsers section:</p><pre><code class="lang-yaml"><span class="hljs-attr">  browsers:</span>
+    &lt;browser-id&gt;:
+      &lt;setting&gt;: &lt;value<span class="hljs-string">&gt;
+      &lt;setting&gt;: &lt;value&gt;</span></code></pre>
+<p><code>&lt;browser-id&gt;</code> value is used for browser identification in test reports and
+for constructing screens file names.</p><p>Settings list:</p><ul><li><p><code>rootUrl</code> (required) &#x2014; the root URL of your website. Target URLs of your
+test suites will be resolved relatively to it. If top level <code>rootUrl</code> value is set
+and browser <code>rootUrl</code> &#x2014; is relative url, then resolved <code>rootUrl</code> will be result of
+concatenation of top level <code>rootUrl</code> and individual browser <code>rootUrl</code>.</p></li>
+<li><p><code>desiredCapabilities</code> (required) &#x2014; WebDriver
+<a href="https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities" target="_blank">DesiredCapabilites</a>
+for the browser. Per-browser value will be merged with top-level value
+instead of overriding it.</p></li>
+<li><p><code>gridUrl</code> &#x2014; WebDriver URL to use for taking screenshots. By default is
+<a href="http://localhost:4444/wd/hub" target="_blank">http://localhost:4444/wd/hub</a></p></li>
+<li><p><code>calibrate</code> &#x2014; does this browser need to perform the calibration procedure.
+This procedure allows to correctly capture the image in case the particular
+WebDriver implementation captures browser UI along with web page. Enabled by
+default. If you are sure this is not the case for your WebDriver, you can
+disable it by setting this option to <code>false</code>.</p></li>
+<li><p><code>httpTimeout</code> &#x2014; timeout for HTTP requests to WebDriver, milliseconds. By
+default the server timeout is used.</p></li>
+<li><p><code>sessionRequestTimeout</code> &#x2014; timeout for getting of browser sessions, milliseconds. By default the value of option <code>httpTimeout</code> is used.</p></li>
+<li><p><code>sessionQuitTimeout</code> &#x2014; timeout for closing browser sessions, milliseconds. By default the value of option <code>httpTimeout</code> is used.</p></li>
+<li><p><code>screenshotsDir</code> &#x2014; directory to save reference screenshots to.
+<code>&lt;projectRoot&gt;/gemini/screens</code> by default.</p></li>
+<li><p><code>tolerance</code> &#x2014; indicates maximum allowed
+<a href="http://en.wikipedia.org/wiki/Color_difference#CIEDE2000" target="_blank">CIEDE2000</a>
+difference between colors. Used only in non-strict mode. By default it&apos;s 2.3
+which should be enough for the most cases. Increasing global default is not
+recommended, prefer changing tolerance for particular suites or states
+instead.</p></li>
+<li><p><code>antialiasingTolerance</code> &#x2014; read about this option in <a href="https://github.com/gemini-testing/looks-same#comparing-images-with-ignoring-antialiasing" target="_blank">looks-same</a>.</p></li>
+<li><p><code>compareOpts</code> &#x2014; extra options for comparing images. See <a href="https://github.com/gemini-testing/looks-same#comparing-images" target="_blank">looks-same</a> documentation for the list of available options. Default values are:</p><pre><code class="lang-javascript">compareOpts: {
+  stopOnFirstFail: <span class="hljs-literal">false</span>
+}</code></pre>
+</li></ul>
+<h4 id="builddiffopts">buildDiffOpts</h4><p>Extra options for building diff image. See <a href="https://github.com/gemini-testing/looks-same#building-diff-image" target="_blank">looks-same</a> documentation for the list of available options. Default values are:</p><pre><code class="lang-javascript">buildDiffOpts: {
+    ignoreAntialiasing: <span class="hljs-literal">true</span>,
+    ignoreCaret: <span class="hljs-literal">true</span>
+}</code></pre>
+<ul><li><p><code>windowSize</code> &#x2014; specify browser window dimensions (i.e. <code>1600x1200</code>). If not
+specified, the size of the window depends on WebDriver. <img align="absmiddle" alt=":warning:" class="emoji" src="../gitbook/gitbook-plugin-advanced-emoji/emojis/warning.png" title=":warning:"> You can&apos;t set specific resolutions for browser Opera or mobile platforms. They use only full-screen resolution.</p></li>
+<li><p><code>sessionsPerBrowser</code> &#x2014; how many WebDriver sessions  can be launched
+simultaneously for this browser. Default is 1. Increase the value if you
+want to speed up your tests.</p></li>
+<li><p><code>suitesPerSession</code> &#x2014; maximum amount of test suites to run in each web driver
+session. After limit is reached, session gets closed and new session gets
+started. By default is <code>.inf</code> (no limit). Set to smaller number if you are
+experiencing stability problems.</p></li>
+<li><p><code>retry</code> &#x2014; maximum amount of relaunch fallen tests with a critical error. If not
+specified, the fallen tests will not be relaunched (by default it&apos;s 0).</p><p>Note that the same test never be performed in the same browser session.</p></li>
+<li><p><code>shouldRetry</code> &#x2014; function which defines whether to make a retry. Should returns <code>Boolean</code> value. First argument is <code>data</code> which is the result of the test run, it&apos;s an Object with following fields:</p><ul><li><code>attempt {Number}</code> number of retries performed for the test
+</li>
+<li><code>retriesLeft {Number}</code> number of retries left
+</li>
+<li><code>[equal] {Boolean}</code> notice that if the test fails with critical error equal can be absent
+</li></ul>
+</li>
+<li><p><code>screenshotMode</code> &#x2014; image capture mode. There are 3 allowed values for this option:</p><ul><li><code>auto</code> (default). Mode will be obtained automatically.
+</li>
+<li><code>fullpage</code>. Gemini will deal with screenshot of full page.
+</li>
+<li><code>viewport</code>. Only viewport area will be used.
+</li></ul>
+</li>
+<li><p><code>compositeImage</code> &#x2014; allows testing of regions which bottom bounds are outside of a viewport height (default: <code>false</code>).
+In the resulting screenshot the area which fits the viewport bounds will be <strong>joined</strong> with the area which is outside
+of the viewport height.</p><p><img align="absmiddle" alt=":warning:" class="emoji" src="../gitbook/gitbook-plugin-advanced-emoji/emojis/warning.png" title=":warning:"> Option does not work in Opera@12.16.</p></li>
+<li><p><code>screenshotDelay</code> &#x2014; allows to specify a delay (in milliseconds) before making any screenshot.
+By default there is no delay.</p><p>This is useful when the page has elements which are animated.</p></li>
+<li><p><code>orientation</code> &#x2013; browser orientation that will be set before each test run. It is useful to restore the default browser orientation after test execution in which orientation was changed. There are 3 allowed values for this option:</p><ul><li><code>null</code> (default). No action will be taken.
+</li>
+<li><code>landscape</code>. Orientation will be changed to landscape mode before running the test.
+</li>
+<li><code>portrait</code>. Orientation will be changed to portrait mode before running the test.
+</li></ul>
+</li></ul>
+<h2 id="sets">Sets</h2><p>You can link some set of tests with certain browsers using <code>sets</code>.</p><p>Format of the <code>sets</code> section:</p><pre><code class="lang-yaml"><span class="hljs-attr">sets:</span>
+  &lt;set-name&gt;:
+<span class="hljs-attr">    files:</span>
+<span class="hljs-bullet">     -</span> &lt;dir-with-test-files<span class="hljs-string">&gt;
+     ...
+</span><span class="hljs-attr">    browsers:</span>
+<span class="hljs-bullet">     -</span> &lt;browser-id-to-test-in<span class="hljs-string">&gt;
+     ...</span></code></pre>
+<ul><li><p><code>files</code> &#x2014; list of test files or directories with test files. Should be relative to project root directory. Also, you can use masks for this property. For example: <code>gemini/test-suites/*.gemini.js</code>. Can be a string if you want to specify just one file or directory.</p></li>
+<li><p><code>browsers</code> &#x2014; list of browser ids to run tests specified in <code>files</code>. All browsers by default.</p></li></ul>
+<p>If sets are not specified in config, all files from <code>gemini</code> directory will be launched in all browsers specified in a config.</p><p>You can specify sets to run using CLI option <a href="commands.html#common-cli-options"><code>--set</code></a>.</p><h2 id="overriding-settings">Overriding settings</h2><p>All options can also be overridden via command-line flags or environment
+variables. Priorities are the following:</p><ul><li><p>command-line option has the highest priority. It overrides environment
+variable and config file value.</p></li>
+<li><p>environment variable has second priority. It overrides config file value.</p></li>
+<li><p>config file value has the lowest priority.</p></li>
+<li><p>if no command-line option, environment variable or config file option
+specified, default is used.</p></li></ul>
+<p>To override config setting with CLI option, convert full option path to
+<code>--kebab-case</code>. For example, if you want to run tests against different root
+URL, call:</p><pre><code>gemini test --root-url http://example.com</code></pre>
+<p>To save screenshots for IE9 to different location (considering you have
+browser with <code>ie9</code> id in the config):</p><pre><code>gemini update --browsers-ie-9-screenshots-dir ./ie9-screens</code></pre>
+<p>To override setting with environment variable, convert its full path to
+<code>snake_case</code> and add <code>gemini_</code> prefix. Above examples can be rewritten to use
+environment variables instead of CLI options:</p><pre><code>gemini_root_url=http://example.com gemini test
+gemini_browsers_ie9_screenshots_dir=./ie9-screens gemini update</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="commands.html" class="navigation navigation-next " aria-label="Next page: Command-line interface">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.2","depth":1,"next":{"title":"Command-line interface","level":"1.3","depth":1,"path":"doc/commands.md","ref":"doc/commands.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/gemini-testing/gemini"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit on github","base":"https://github.com/gemini-testing/gemini/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gemini","gitbook":"3.2.0","description":"Visual regression testing tool"},"file":{"path":"doc/config.md","mtime":"2019-07-29T06:38:47.153Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-07-29T06:41:15.469Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,663 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Events · Gemini</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="plugins.html" />
+    
+    
+    <link rel="prev" href="programmatic-api.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    Command-line interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="programmatic-api.html">
+            
+                <a href="programmatic-api.html">
+            
+                    
+                    Programmatic API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Plugins API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <a target="_blank" href="https://www.npmjs.com/browse/keyword/gemini-plugin">
+            
+                    
+                    Plugins list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../CHANGELOG.html">
+            
+                <a href="../CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../CLA.html">
+            
+                <a href="../CLA.html">
+            
+                    
+                    CLA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Events</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="gemini-events">Gemini events</h1><p>Events are listed in order they are emitted.</p><table>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td><code>CLI</code></td>
+<td>
+Emitted right at start, before cli is parsed. Allows to add new commands and extend help message.
+Event is emitted with 1 argument <code>parser</code> which is the
+<a href="https://github.com/tj/commander.js" target="_blank">commander</a>
+instance used inside gemini itself.
+</td>
+</tr>
+
+<tr>
+<td><code>INIT</code></td>
+<td>
+Emitted before any job start (<code>test</code>, <code>update</code> or <code>readTests</code>).
+If handler returns a promise, then job will start only after the promise is resolved.
+Emitted only once no matter how many times job is performed.
+</td>
+</tr>
+
+<tr>
+<td><code>BEFORE_FILE_READ</code></td>
+<td>
+Emitted before each test file is read. Event is emitted with 1 argument <code>filePath</code>,
+which is the absolute path to the file to be read.
+</td>
+</tr>
+
+<tr>
+<td><code>AFTER_FILE_READ</code></td>
+<td>
+Emitted after each test file has been read. Event is emitted with 1 argument <code>filePath</code>
+which is the absolute path to the file that was read.
+</td>
+</tr>
+
+<tr>
+<td><code>AFTER_TESTS_READ</code></td>
+<td>
+Emitted after all tests were read (during <code>test</code>, <code>update</code> or <code>readTests</code> call).
+Event is emitted with 1 argument <code>data</code>:
+<pre>
+{
+    suiteCollection // suite collection with all suites parsed from test files
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>START_RUNNER</code></td>
+<td>
+Emitted before the start of <code>test</code> or <code>update</code> command.
+If you return a promise from the event handler, the start of the command will be delayed until the promise resolves.
+</td>
+</tr>
+
+<tr>
+<td><code>BEGIN</code></td>
+<td>
+Runner event. Emitted on runner start with 1 argument <code>data</code>:
+<pre>
+{
+    suiteCollection, // suite collection which will be run
+    config,          // gemini config
+    totalStates,     // number of states in collection
+    browserIds       // all browser ids from config
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>BEGIN_SUITE</code></td>
+<td>
+Emitted before decide if should test suite in specified browser. Event is emitted with 1 argument <code>data</code>:
+<pre>
+{
+    suite,
+    browserId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>SKIP_STATE</code></td>
+<td>
+Emitted if browser is skipped in this state. Event is emitted with 1 argument <code>data</code>:
+<pre>
+{
+    suite,
+    state,
+    browserId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>START_BROWSER</code></td>
+<td>
+Emitted on browser session start. Emitted with
+<a href="../lib/browser/new-browser.js">browser instance</a>.
+If handler returns a promise, tests will be executed in this session only after the promise is resolved.
+</td>
+</tr>
+
+<tr>
+<td><code>BEGIN_STATE</code></td>
+<td>
+Emitted before launching browser for test. Event is emitted with 1 argument <code>data</code>:
+<pre>
+{
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>UPDATE_RESULT</code></td>
+<td>
+Emitted always during update. Event is emitted with 1 argument <code>result</code>:
+<pre>
+{
+    refImg,    // reference image info which includes absolute path and size (width, height)
+    updated,   // shows if reference image has been changed
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>RETRY</code></td>
+<td>
+Emitted if test has failed but <b>there is still number of retries left</b>.
+Event is emitted with 1 argument <code>result</code>:
+<pre>
+{
+    refImg,        // reference image info which includes absolute path and size (width, height)
+    currImg,       // current image info which includes absolute path and size (width, height)
+    equal,         // always <i>false</i> for retries
+    tolerance,     // specified for current test or globally in <i>.gemini.js</i>
+    saveDiffTo,    /* function responsible for building <i>diff</i> and <i>present</i>
+                      in the <i>result</i> only if images aren&apos;t equal */
+    attempt,       // number of retry for browser in current test
+    retriesLeft,   /* number of left retries &gt; 0, when number hits 0
+                      event <i>TEST_RESULT</i> is called instead */
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>TEST_RESULT</code></td>
+<td>
+Emitted always after the test is completed. Event is emitted with 1 argument <code>result</code>:
+<pre>
+{
+    refImg,        // reference image info which includes absolute path and size (width, height)
+    currImg,       // current image info which includes absolute path and size (width, height)
+    equal,         // shows if images are equal
+    tolerance,     // specified for current test or globally in <i>.gemini.js</i>
+    saveDiffTo,    /* function responsible for building <i>diff</i> and <i>present</i>
+                      in the <i>result</i> only if images aren&apos;t equal */
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>END_STATE</code></td>
+<td>
+Emitted right after <code>UPDATE_RESULT</code> and <code>TEST_RESULT</code> with 1 argument <code>data</code>:
+<pre>
+{
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>STOP_BROWSER</code></td>
+<td>
+Emitted right before browser session end. Emitted with
+<a href="../lib/browser/new-browser.js">browser instance</a>.
+If handler returns a promise, quit will be performed only after the promise is resolved.
+</td>
+</tr>
+
+<tr>
+<td><code>END_SUITE</code></td>
+<td>
+Emitted right after suite is skipped or tested in specified browser. Emitted with 1 argument <code>data</code>:
+<pre>
+{
+    suite,     // tested suite
+    browserId, // skipped or tested browser
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>ERROR</code></td>
+<td>
+Emitted with 1 argument <code>err</code>, which is an instance of <code>Error</code>
+and has additional fields depending on the cause of error.
+
+For example, if <i>Reference image is missing</i>, <code>err</code> will have additional fields:
+
+<pre>
+{
+    refImg,
+    currImg,
+    suite,
+    state,
+    browserId,
+    sessionId
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>INTERRUPT</code></td>
+<td>
+Emitted on signal events <code>SIGHUP</code>, <code>SIGINT</code> or <code>SIGTERM</code>.
+The event is emitted with 1 argument <code>data &#x2013; {exitCode}</code>, wich is
+<ul>
+<li> 129 for <code>SIGHUP</code>
+</li><li> 130 for <code>SIGINT</code>
+</li><li> 143 for <code>SIGTERM</code>
+</li></ul>
+</td>
+</tr>
+
+<tr>
+<td><code>END</code></td>
+<td>
+Emitted when all tests are completed with 1 argument <code>stat</code>, which contains statistics for tests.
+
+For example:
+
+<pre>
+{
+    total: 6,
+    updated: 0,
+    passed: 2,
+    failed: 1,
+    skipped: 3,
+    retries: 8
+}
+</pre>
+</td>
+</tr>
+
+<tr>
+<td><code>END_RUNNER</code></td>
+<td>
+Emitted after the end of the <code>test</code> or <code>update</code> command.
+</td>
+</tr>
+
+</table>
+
+
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="programmatic-api.html" class="navigation navigation-prev " aria-label="Previous page: Programmatic API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="plugins.html" class="navigation navigation-next " aria-label="Next page: Plugins API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Events","level":"1.6","depth":1,"next":{"title":"Plugins API","level":"1.7","depth":1,"path":"doc/plugins.md","ref":"doc/plugins.md","articles":[]},"previous":{"title":"Programmatic API","level":"1.5","depth":1,"path":"doc/programmatic-api.md","ref":"doc/programmatic-api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/gemini-testing/gemini"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit on github","base":"https://github.com/gemini-testing/gemini/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gemini","gitbook":"3.2.0","description":"Visual regression testing tool"},"file":{"path":"doc/events.md","mtime":"2019-07-29T06:38:47.153Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-07-29T06:41:15.469Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
